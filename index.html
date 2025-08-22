@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Laddu Gopal Collection Boutique & Beauty Parlour</title>
-
-<!-- CSS -->
 <style>
-/* General Styles */
 body { font-family: Arial,sans-serif; margin:0; padding:0; scroll-behavior:smooth;}
 header { background:#f8c291; padding:20px; text-align:center; position:sticky; top:0; z-index:1000;}
 header nav a { margin:0 10px; text-decoration:none; color:#333; font-weight:bold; transition:0.3s;}
@@ -24,13 +21,11 @@ section { padding:50px 20px; text-align:center;}
 form input, form textarea { width:100%; padding:10px; margin:5px 0; }
 form button { padding:10px 20px; margin-top:10px; background:#f8c291; border:none; cursor:pointer; }
 footer { background:#333; color:white; padding:20px; text-align:center; position:relative;}
-/* WhatsApp Button */
 #whatsapp-btn { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; border:none; border-radius:50%; width:60px; height:60px; font-size:30px; cursor:pointer; z-index:1000; }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
 <h1>Laddu Gopal Collection Boutique & Beauty Parlour</h1>
 <nav>
@@ -45,9 +40,9 @@ footer { background:#333; color:white; padding:20px; text-align:center; position
 
 <!-- Hero Section -->
 <section id="home" class="hero">
-  <img src="images/hero1.jpg" class="active" alt="Hero Image">
-  <img src="images/hero2.jpg" alt="Hero Image">
-  <img src="images/hero3.jpg" alt="Hero Image">
+  <img src="data:image/jpeg;base64,REPLACE_WITH_YOUR_HERO1_BASE64" class="active" alt="Hero Image 1">
+  <img src="data:image/jpeg;base64,REPLACE_WITH_YOUR_HERO2_BASE64" alt="Hero Image 2">
+  <img src="data:image/jpeg;base64,REPLACE_WITH_YOUR_HERO3_BASE64" alt="Hero Image 3">
   <div style="position:absolute;bottom:50px;left:50%;transform:translateX(-50%);color:white;text-align:center;">
     <h2>Welcome to Laddu Gopal Collection</h2>
     <p>Experience the finest boutique & beauty services!</p>
@@ -55,13 +50,11 @@ footer { background:#333; color:white; padding:20px; text-align:center; position
   </div>
 </section>
 
-<!-- About Section -->
 <section id="about">
 <h2>About Us</h2>
 <p>We offer premium boutique collections and beauty services to enhance your style and elegance.</p>
 </section>
 
-<!-- Services Section -->
 <section id="services">
 <h2>Our Services</h2>
 <ul>
@@ -72,23 +65,36 @@ footer { background:#333; color:white; padding:20px; text-align:center; position
 </ul>
 </section>
 
-<!-- Products Section -->
 <section id="products">
 <h2>Our Products</h2>
-<div id="product-grid" class="grid"></div>
-</section>
-
-<!-- Gallery Section -->
-<section id="gallery">
-<h2>Gallery</h2>
 <div class="grid">
-  <img src="images/gallery1.jpg" alt="Gallery Image" onclick="openLightbox(this)">
-  <img src="images/gallery2.jpg" alt="Gallery Image" onclick="openLightbox(this)">
-  <img src="images/gallery3.jpg" alt="Gallery Image" onclick="openLightbox(this)">
+  <div class="product-card">
+    <img src="data:image/jpeg;base64,REPLACE_WITH_SAREE_BASE64" alt="Fancy Saree">
+    <h3>Fancy Saree</h3>
+    <p>₹1500</p>
+  </div>
+  <div class="product-card">
+    <img src="data:image/jpeg;base64,REPLACE_WITH_LEHENGA_BASE64" alt="Designer Lehenga">
+    <h3>Designer Lehenga</h3>
+    <p>₹4500</p>
+  </div>
+  <div class="product-card">
+    <img src="data:image/jpeg;base64,REPLACE_WITH_KURTI_BASE64" alt="Kurti Set">
+    <h3>Kurti Set</h3>
+    <p>₹1200</p>
+  </div>
 </div>
 </section>
 
-<!-- Contact Section -->
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="grid">
+  <img src="data:image/jpeg;base64,REPLACE_WITH_GALLERY1_BASE64" alt="Gallery 1" onclick="openLightbox(this)">
+  <img src="data:image/jpeg;base64,REPLACE_WITH_GALLERY2_BASE64" alt="Gallery 2" onclick="openLightbox(this)">
+  <img src="data:image/jpeg;base64,REPLACE_WITH_GALLERY3_BASE64" alt="Gallery 3" onclick="openLightbox(this)">
+</div>
+</section>
+
 <section id="contact">
 <h2>Contact Us</h2>
 <form action="https://formspree.io/f/your-form-id" method="POST">
@@ -101,15 +107,12 @@ footer { background:#333; color:white; padding:20px; text-align:center; position
 <p>Phone: +91-XXXXXXXXXX</p>
 </section>
 
-<!-- Footer -->
 <footer>
 <p>&copy; 2025 Laddu Gopal Collection. All rights reserved.</p>
 </footer>
 
-<!-- WhatsApp Button -->
 <button id="whatsapp-btn" onclick="window.open('https://wa.me/91XXXXXXXXXX','_blank')">💬</button>
 
-<!-- Scripts -->
 <script>
 // Hero Slider
 let heroIndex=0;
@@ -119,24 +122,6 @@ setInterval(()=> {
   heroIndex=(heroIndex+1)%heroImages.length;
   heroImages[heroIndex].classList.add('active');
 },4000);
-
-// Load Products JSON
-fetch('products.json')
-.then(res=>res.json())
-.then(products=>{
-  const grid=document.getElementById('product-grid');
-  products.forEach(p=>{
-    const card=document.createElement('div');
-    card.className='product-card';
-    card.innerHTML=`
-      <img src="${p.image}" alt="${p.name}">
-      <h3>${p.name}</h3>
-      <p>${p.price}</p>
-    `;
-    grid.appendChild(card);
-  });
-})
-.catch(err=>console.error('Error loading products:',err));
 
 // Gallery Lightbox
 function openLightbox(img){
@@ -156,5 +141,6 @@ function openLightbox(img){
   document.body.appendChild(lightbox);
 }
 </script>
+
 </body>
 </html>

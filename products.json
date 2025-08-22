@@ -1,0 +1,5 @@
+[
+  { "id":1,"name":"Fancy Saree","price":"₹1500","image":"images/saree1.jpg" },
+  { "id":2,"name":"Designer Lehenga","price":"₹4500","image":"images/lehenga1.jpg" },
+  { "id":3,"name":"Kurti Set","price":"₹1200","image":"images/kurti1.jpg" }
+]
